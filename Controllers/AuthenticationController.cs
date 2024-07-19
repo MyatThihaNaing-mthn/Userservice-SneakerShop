@@ -1,7 +1,9 @@
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Mvc;
 using UserServiceApi.DTOs;
 using UserServiceApi.Interfaces;
 using UserServiceApi.Models;
+using UserServiceApi.Services;
 
 namespace UserServiceApi.Controllers;
 
@@ -9,9 +11,11 @@ namespace UserServiceApi.Controllers;
 [Route("api/auth")]
 public class AuthenticationController : ControllerBase{
     private readonly IUserService _userService;
+    private readonly JwtGenerator _jwtGenerator;
 
-    public AuthenticationController(IUserService userService){
+    public AuthenticationController(IUserService userService, JwtGenerator jwtGenerator){
         _userService = userService;
+        _jwtGenerator = jwtGenerator;
     }
 
     [HttpPost("admin/register")]
@@ -31,7 +35,12 @@ public class AuthenticationController : ControllerBase{
         Console.WriteLine("loggin in");
         User? user = await _userService.LogIn(request);
         if(user != null){
-            return Ok(user);
+            String token = new JwtSecurityTokenHandler().WriteToken(_jwtGenerator.GetJwtSecurityToken(user));
+            var response = new LogInResponse{
+                Id = user.Id,
+                Token = token
+            };
+            return Ok(response);
         }
         return Unauthorized();
     }

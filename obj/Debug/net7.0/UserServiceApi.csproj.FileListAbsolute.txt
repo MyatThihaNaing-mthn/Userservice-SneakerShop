@@ -55,3 +55,10 @@
 /Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Steeltoe.Discovery.Eureka.dll
 /Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Steeltoe.Extensions.Configuration.Abstractions.dll
 /Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/System.Reflection.MetadataLoadContext.dll
+/Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/thiha/Desktop/UserService/UserServiceApi/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
