@@ -11,6 +11,7 @@
     <PackageReference Include="MongoDB.Driver" Version="2.27.0" />
     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.2.7" />
     <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.2.7" />
+    <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.2.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
   </ItemGroup>

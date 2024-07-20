@@ -876,7 +876,7 @@
           }
         }
       },
-      "Steeltoe.Common/3.2.7": {
+      "Steeltoe.Common/3.2.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "3.1.0",
@@ -886,7 +886,7 @@
           "Microsoft.Extensions.DependencyInjection": "3.1.0",
           "Microsoft.Extensions.Logging.Console": "3.1.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.0",
-          "Steeltoe.Common.Abstractions": "3.2.7",
+          "Steeltoe.Common.Abstractions": "3.2.8",
           "System.Diagnostics.DiagnosticSource": "5.0.1",
           "System.Reflection.MetadataLoadContext": "4.6.0",
           "System.Text.Json": "5.0.2"
@@ -902,7 +902,7 @@
           }
         }
       },
-      "Steeltoe.Common.Abstractions/3.2.7": {
+      "Steeltoe.Common.Abstractions/3.2.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "3.1.0"
@@ -918,12 +918,12 @@
           }
         }
       },
-      "Steeltoe.Common.Http/3.2.7": {
+      "Steeltoe.Common.Http/3.2.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "3.1.0",
-          "Steeltoe.Common": "3.2.7",
-          "Steeltoe.Discovery.Abstractions": "3.2.7",
+          "Steeltoe.Common": "3.2.8",
+          "Steeltoe.Discovery.Abstractions": "3.2.8",
           "System.Text.Json": "5.0.2"
         },
         "compile": {
@@ -972,11 +972,11 @@
           }
         }
       },
-      "Steeltoe.Discovery.Abstractions/3.2.7": {
+      "Steeltoe.Discovery.Abstractions/3.2.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.0",
-          "Steeltoe.Common.Abstractions": "3.2.7"
+          "Steeltoe.Common.Abstractions": "3.2.8"
         },
         "compile": {
           "lib/netstandard2.0/Steeltoe.Discovery.Abstractions.dll": {
@@ -1047,13 +1047,13 @@
           }
         }
       },
-      "Steeltoe.Extensions.Configuration.Abstractions/3.2.7": {
+      "Steeltoe.Extensions.Configuration.Abstractions/3.2.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration": "6.0.0",
           "Microsoft.Extensions.Configuration.Binder": "6.0.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Steeltoe.Common.Abstractions": "3.2.7"
+          "Steeltoe.Common.Abstractions": "3.2.8"
         },
         "compile": {
           "lib/net6.0/Steeltoe.Extensions.Configuration.Abstractions.dll": {
@@ -1062,6 +1062,82 @@
         },
         "runtime": {
           "lib/net6.0/Steeltoe.Extensions.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steeltoe.Extensions.Configuration.CloudFoundryBase/3.2.8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.0",
+          "Microsoft.Extensions.Configuration.Json": "3.1.0",
+          "Steeltoe.Common": "3.2.8",
+          "Steeltoe.Extensions.Configuration.Abstractions": "3.2.8"
+        },
+        "compile": {
+          "lib/netstandard2.0/Steeltoe.Extensions.Configuration.CloudFoundryBase.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Steeltoe.Extensions.Configuration.CloudFoundryBase.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steeltoe.Extensions.Configuration.ConfigServerBase/3.2.8": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common.Http": "3.2.8",
+          "Steeltoe.Extensions.Configuration.CloudFoundryBase": "3.2.8",
+          "Steeltoe.Extensions.Configuration.PlaceholderBase": "3.2.8",
+          "System.Net.Http.Json": "3.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/Steeltoe.Extensions.Configuration.ConfigServerBase.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Steeltoe.Extensions.Configuration.ConfigServerBase.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steeltoe.Extensions.Configuration.ConfigServerCore/3.2.8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Hosting": "6.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0",
+          "Steeltoe.Extensions.Configuration.ConfigServerBase": "3.2.8"
+        },
+        "compile": {
+          "lib/net6.0/Steeltoe.Extensions.Configuration.ConfigServerCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Steeltoe.Extensions.Configuration.ConfigServerCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Steeltoe.Extensions.Configuration.PlaceholderBase/3.2.8": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common": "3.2.8",
+          "Steeltoe.Extensions.Configuration.Abstractions": "3.2.8"
+        },
+        "compile": {
+          "lib/net6.0/Steeltoe.Extensions.Configuration.PlaceholderBase.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Steeltoe.Extensions.Configuration.PlaceholderBase.dll": {
             "related": ".xml"
           }
         }
@@ -2666,45 +2742,45 @@
         "snappier.nuspec"
       ]
     },
-    "Steeltoe.Common/3.2.7": {
-      "sha512": "BFWIpm7dBH63h7f9pViykXh0cgQuarEdDcgV3mSebcGCl/aWL0qA/XlIf7aKcAmsKJWCCz6tRrJfYN1DxRPBaw==",
+    "Steeltoe.Common/3.2.8": {
+      "sha512": "DTuWB4WBAnS2x+lHSlcrmq9ehOr3rn++xQ4RSrcJ1DZmn7zl06BhwF6GdKhJ/m/SoTDkuXFsya8p5OFVaMlOEA==",
       "type": "package",
-      "path": "steeltoe.common/3.2.7",
+      "path": "steeltoe.common/3.2.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Common.dll",
         "lib/netstandard2.0/Steeltoe.Common.xml",
-        "steeltoe.common.3.2.7.nupkg.sha512",
+        "steeltoe.common.3.2.8.nupkg.sha512",
         "steeltoe.common.nuspec"
       ]
     },
-    "Steeltoe.Common.Abstractions/3.2.7": {
-      "sha512": "c2M5r7E4/cPev65ik+6yVLzGuetu3MKDJUqGDNvO/VfBT8wiwifJj6+grv9gdtikYEdaBBlAfEY2yiLkD2sNZw==",
+    "Steeltoe.Common.Abstractions/3.2.8": {
+      "sha512": "vPe+NXb6IfDlXgn7nX72CElCJnDteapMznA/rveELJwWa74lSjObje04Q0wxhbT1s8KS3JBO63bF1R3wDjNwvQ==",
       "type": "package",
-      "path": "steeltoe.common.abstractions/3.2.7",
+      "path": "steeltoe.common.abstractions/3.2.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Common.Abstractions.dll",
         "lib/netstandard2.0/Steeltoe.Common.Abstractions.xml",
-        "steeltoe.common.abstractions.3.2.7.nupkg.sha512",
+        "steeltoe.common.abstractions.3.2.8.nupkg.sha512",
         "steeltoe.common.abstractions.nuspec"
       ]
     },
-    "Steeltoe.Common.Http/3.2.7": {
-      "sha512": "/bnSQhGp67GTwrdloY4Fola/ADCs9oHOMVuKDE16E4MeqBuLB1GWxooWVqP561juu0NYHYAGavSRxY63Qiq/lg==",
+    "Steeltoe.Common.Http/3.2.8": {
+      "sha512": "HnKqqe3+HBYZTspdy+SQ6D0hZz6Pp3U/gP1C6KPJCXyVOeSd8gVyXLc3eX8muwJWQH4c7YjJ1on1kbCYCDT74w==",
       "type": "package",
-      "path": "steeltoe.common.http/3.2.7",
+      "path": "steeltoe.common.http/3.2.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Common.Http.dll",
         "lib/netstandard2.0/Steeltoe.Common.Http.xml",
-        "steeltoe.common.http.3.2.7.nupkg.sha512",
+        "steeltoe.common.http.3.2.8.nupkg.sha512",
         "steeltoe.common.http.nuspec"
       ]
     },
@@ -2738,17 +2814,17 @@
         "steeltoe.connector.connectorbase.nuspec"
       ]
     },
-    "Steeltoe.Discovery.Abstractions/3.2.7": {
-      "sha512": "ZMvtinz9bnl6tx8Y5Nt9WldGyXS8lxYRWHkLwDINc4RBw3coJu0fP10veWFyFuw30Rzzg45okrql9sz44iJbfA==",
+    "Steeltoe.Discovery.Abstractions/3.2.8": {
+      "sha512": "b5udMYgABp2pFQXwtYLKwNQ0fq08+0LduPrJCjm1CH0wdi+4dY0sO4vhyj5T0Kw80weLUNftRhlN+XoPXMEKbg==",
       "type": "package",
-      "path": "steeltoe.discovery.abstractions/3.2.7",
+      "path": "steeltoe.discovery.abstractions/3.2.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Discovery.Abstractions.dll",
         "lib/netstandard2.0/Steeltoe.Discovery.Abstractions.xml",
-        "steeltoe.discovery.abstractions.3.2.7.nupkg.sha512",
+        "steeltoe.discovery.abstractions.3.2.8.nupkg.sha512",
         "steeltoe.discovery.abstractions.nuspec"
       ]
     },
@@ -2798,10 +2874,10 @@
         "steeltoe.discovery.eureka.nuspec"
       ]
     },
-    "Steeltoe.Extensions.Configuration.Abstractions/3.2.7": {
-      "sha512": "KBr9B8dUE1QJahEYUzYpPGnf+zIV3VWGfcpt8+k8x92nteZ8NOARWkBhqI4dYNqoAgSsDcm5QuTuFJNxDu43pA==",
+    "Steeltoe.Extensions.Configuration.Abstractions/3.2.8": {
+      "sha512": "ZfnU0Oa2vRhYKZ6CckttY7IUFZ5sgHl6gLB+HMgos99l4yop9AQhqdR/6Vi5HNGTIFeyvbcsmPgNMrZvbKjKyw==",
       "type": "package",
-      "path": "steeltoe.extensions.configuration.abstractions/3.2.7",
+      "path": "steeltoe.extensions.configuration.abstractions/3.2.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2810,8 +2886,70 @@
         "lib/net6.0/Steeltoe.Extensions.Configuration.Abstractions.xml",
         "lib/netstandard2.0/Steeltoe.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Steeltoe.Extensions.Configuration.Abstractions.xml",
-        "steeltoe.extensions.configuration.abstractions.3.2.7.nupkg.sha512",
+        "steeltoe.extensions.configuration.abstractions.3.2.8.nupkg.sha512",
         "steeltoe.extensions.configuration.abstractions.nuspec"
+      ]
+    },
+    "Steeltoe.Extensions.Configuration.CloudFoundryBase/3.2.8": {
+      "sha512": "vY9crHyz3ZkEY3InfXbYLK5Xe0yQ3nLnTtGFobQAicJRh9zexP0XOywckzAVN2yE6tGRyh5Su1qc6Gh7gj3CIA==",
+      "type": "package",
+      "path": "steeltoe.extensions.configuration.cloudfoundrybase/3.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/Steeltoe.Extensions.Configuration.CloudFoundryBase.dll",
+        "lib/netstandard2.0/Steeltoe.Extensions.Configuration.CloudFoundryBase.xml",
+        "steeltoe.extensions.configuration.cloudfoundrybase.3.2.8.nupkg.sha512",
+        "steeltoe.extensions.configuration.cloudfoundrybase.nuspec"
+      ]
+    },
+    "Steeltoe.Extensions.Configuration.ConfigServerBase/3.2.8": {
+      "sha512": "Y7jyKz1jgPyHGlNVLQGDh9UQwWaPZnXaDPKWN/cxcvUWdqiA7C42d/LLA9lrIvHsV62nDbSNSYsFlvyh9z3xUQ==",
+      "type": "package",
+      "path": "steeltoe.extensions.configuration.configserverbase/3.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/Steeltoe.Extensions.Configuration.ConfigServerBase.dll",
+        "lib/netstandard2.0/Steeltoe.Extensions.Configuration.ConfigServerBase.xml",
+        "lib/netstandard2.1/Steeltoe.Extensions.Configuration.ConfigServerBase.dll",
+        "lib/netstandard2.1/Steeltoe.Extensions.Configuration.ConfigServerBase.xml",
+        "steeltoe.extensions.configuration.configserverbase.3.2.8.nupkg.sha512",
+        "steeltoe.extensions.configuration.configserverbase.nuspec"
+      ]
+    },
+    "Steeltoe.Extensions.Configuration.ConfigServerCore/3.2.8": {
+      "sha512": "HYN9N/iUY1XqfZuHUwvALJlzJARY4Iklk2u2cAoOKPgFjrYmb/JrQmmbTZwe3uwEuB0Ju421j5/GaOtwRS9NDA==",
+      "type": "package",
+      "path": "steeltoe.extensions.configuration.configservercore/3.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/Steeltoe.Extensions.Configuration.ConfigServerCore.dll",
+        "lib/net6.0/Steeltoe.Extensions.Configuration.ConfigServerCore.xml",
+        "lib/netcoreapp3.1/Steeltoe.Extensions.Configuration.ConfigServerCore.dll",
+        "lib/netcoreapp3.1/Steeltoe.Extensions.Configuration.ConfigServerCore.xml",
+        "steeltoe.extensions.configuration.configservercore.3.2.8.nupkg.sha512",
+        "steeltoe.extensions.configuration.configservercore.nuspec"
+      ]
+    },
+    "Steeltoe.Extensions.Configuration.PlaceholderBase/3.2.8": {
+      "sha512": "pjgs1BlPZrMYKINx7AZY/ln+yKIu+xWHxtSl+E068eVyZ89nDH4t+v9TlPImNvQ7FbDR11QUs/JDQ39qhK/Lyw==",
+      "type": "package",
+      "path": "steeltoe.extensions.configuration.placeholderbase/3.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/Steeltoe.Extensions.Configuration.PlaceholderBase.dll",
+        "lib/net6.0/Steeltoe.Extensions.Configuration.PlaceholderBase.xml",
+        "lib/netstandard2.0/Steeltoe.Extensions.Configuration.PlaceholderBase.dll",
+        "lib/netstandard2.0/Steeltoe.Extensions.Configuration.PlaceholderBase.xml",
+        "steeltoe.extensions.configuration.placeholderbase.3.2.8.nupkg.sha512",
+        "steeltoe.extensions.configuration.placeholderbase.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.4.0": {
@@ -3362,6 +3500,7 @@
       "MongoDB.Driver >= 2.27.0",
       "Steeltoe.Discovery.ClientCore >= 3.2.7",
       "Steeltoe.Discovery.Eureka >= 3.2.7",
+      "Steeltoe.Extensions.Configuration.ConfigServerCore >= 3.2.8",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -3421,6 +3560,10 @@
           "Steeltoe.Discovery.Eureka": {
             "target": "Package",
             "version": "[3.2.7, )"
+          },
+          "Steeltoe.Extensions.Configuration.ConfigServerCore": {
+            "target": "Package",
+            "version": "[3.2.8, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

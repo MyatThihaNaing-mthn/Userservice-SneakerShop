@@ -6,17 +6,34 @@ using UserServiceApi.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Steeltoe.Extensions.Configuration.ConfigServer;
 
 var builder = WebApplication.CreateBuilder(args);
-ConfigurationManager configuration = builder.Configuration;
+builder.AddConfigServer();
+var config = builder.Configuration;
+var env = builder.Environment;
+
+builder.Services.Configure<AppConfiguration>(builder.Configuration.GetSection("AppConfiguration"));
+var appConfig = config.GetSection("AppConfiguration").Get<AppConfiguration>() ?? throw new InvalidOperationException("Appconfig cannot be fetched...");
+
+ILoggerFactory factory = LoggerFactory.Create(builder => builder.AddConsole());
+ILogger logger = factory.CreateLogger("Program");
+
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection(JwtSettings.SectionName));
+logger.LogInformation("appconfig " + appConfig.ToString());
+logger.LogInformation("Testing config server");
+var jwtSettingsSection = appConfig.JwtSettings;
+logger.LogInformation($"Issuer: {jwtSettingsSection.Issuer}");
+logger.LogInformation($"Audience: {jwtSettingsSection.Audience}");
+logger.LogInformation($"SigningKey: {jwtSettingsSection.SigningKey}");
 
 // Add services to the container.
-builder.Services.Configure<UserDatabaseSettings>(builder.Configuration.GetSection(UserDatabaseSettings.SectionName));
-builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection(JwtSettings.SectionName));
-var jwtSettings = builder.Configuration.GetSection(JwtSettings.SectionName).Get<JwtSettings>() ?? throw new InvalidOperationException("JWT settings are not configured properly.");
+builder.Services.Configure<UserDatabaseSettings>(config.GetSection(UserDatabaseSettings.SectionName));
+builder.Services.Configure<JwtSettings>(config.GetSection(JwtSettings.SectionName));
+var jwtSettings = appConfig.JwtSettings;
 
 // Register to Eureka Server
-builder.Services.AddDiscoveryClient(configuration);
+builder.Services.AddDiscoveryClient(config);
 
 
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
