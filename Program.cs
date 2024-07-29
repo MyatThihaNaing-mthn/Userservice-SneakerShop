@@ -7,34 +7,28 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Steeltoe.Extensions.Configuration.ConfigServer;
+using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddConfigServer();
 var config = builder.Configuration;
 var env = builder.Environment;
 
-builder.Services.Configure<AppConfiguration>(builder.Configuration.GetSection("AppConfiguration"));
-var appConfig = config.GetSection("AppConfiguration").Get<AppConfiguration>() ?? throw new InvalidOperationException("Appconfig cannot be fetched...");
+var jwtSettings = config.GetSection(JwtSettings.SectionName).Get<JwtSettings>() ?? throw new InvalidOperationException("jwtsettings not found..");
 
 ILoggerFactory factory = LoggerFactory.Create(builder => builder.AddConsole());
 ILogger logger = factory.CreateLogger("Program");
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection(JwtSettings.SectionName));
-logger.LogInformation("appconfig " + appConfig.ToString());
-logger.LogInformation("Testing config server");
-var jwtSettingsSection = appConfig.JwtSettings;
-logger.LogInformation($"Issuer: {jwtSettingsSection.Issuer}");
-logger.LogInformation($"Audience: {jwtSettingsSection.Audience}");
-logger.LogInformation($"SigningKey: {jwtSettingsSection.SigningKey}");
 
 // Add services to the container.
 builder.Services.Configure<UserDatabaseSettings>(config.GetSection(UserDatabaseSettings.SectionName));
 builder.Services.Configure<JwtSettings>(config.GetSection(JwtSettings.SectionName));
-var jwtSettings = appConfig.JwtSettings;
+
 
 // Register to Eureka Server
+// this method cannot read nested settings
 builder.Services.AddDiscoveryClient(config);
-
 
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IUserService, UserService>();
