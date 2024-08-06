@@ -44,5 +44,19 @@ public class UserService : IUserService
         }
         return null;
     }
+
+    public async Task<UserDTO?> FindUserByEmail(string email)
+    {
+        User? user = await _userRepository.FindUserByEmail(email);
+        if(user != null){
+            if(user.GetType() == typeof(CustomerUser)){
+                return ObjectsMapper.ConvertCustomerDTOFromCustomer((CustomerUser)user);
+            }
+            else if(user.GetType() == typeof(AdminUser)){
+                return ObjectsMapper.ConvertToAdminDTO((AdminUser)user);
+            }
+        }
+        return null;
+    }
 }
 

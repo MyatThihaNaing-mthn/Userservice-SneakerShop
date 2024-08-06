@@ -8,10 +8,10 @@ using UserServiceApi.Models;
 
 namespace UserServiceApi.Services;
 
-public class JwtGenerator {
+public class JwtService {
     private readonly JwtSettings _jwtSettings;
 
-    public JwtGenerator(IOptions<JwtSettings> jwtSettings){
+    public JwtService(IOptions<JwtSettings> jwtSettings){
         _jwtSettings = jwtSettings.Value;
     }
 
@@ -19,7 +19,8 @@ public class JwtGenerator {
         var claims = new []{
             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("role", user.Role)
+            new Claim("role", user.Role),
+            new Claim("userId", user.Id)
         };
 
         var SigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SigningKey));
@@ -34,4 +35,5 @@ public class JwtGenerator {
         );
 
     }
+
 }

@@ -32,7 +32,7 @@ builder.Services.AddDiscoveryClient(config);
 
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IUserService, UserService>();
-builder.Services.AddTransient<JwtGenerator>();
+builder.Services.AddTransient<JwtService>();
 builder.Services.AddControllers();
 
 builder.Services.AddAuthentication(auth =>

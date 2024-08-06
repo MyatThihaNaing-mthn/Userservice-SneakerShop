@@ -11,11 +11,10 @@ namespace UserServiceApi.Controllers;
 [Route("api/auth")]
 public class AuthenticationController : ControllerBase{
     private readonly IUserService _userService;
-    private readonly JwtGenerator _jwtGenerator;
-
-    public AuthenticationController(IUserService userService, JwtGenerator jwtGenerator){
+    private readonly JwtService _jwtService;
+    public AuthenticationController(IUserService userService, JwtService jwtService){
         _userService = userService;
-        _jwtGenerator = jwtGenerator;
+        _jwtService = jwtService;
     }
 
     [HttpPost("admin/register")]
@@ -35,7 +34,7 @@ public class AuthenticationController : ControllerBase{
         Console.WriteLine("loggin in");
         User? user = await _userService.LogIn(request);
         if(user != null){
-            String token = new JwtSecurityTokenHandler().WriteToken(_jwtGenerator.GetJwtSecurityToken(user));
+            String token = new JwtSecurityTokenHandler().WriteToken(_jwtService.GetJwtSecurityToken(user));
             var response = new LogInResponse{
                 Id = user.Id,
                 Token = token
